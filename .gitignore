@@ -1,0 +1,7 @@
+# Ignore temp files.
+*~
+#*#
+#.*
+*.tmp
+*.bkp
+.DS_Store
