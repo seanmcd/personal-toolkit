@@ -6,7 +6,7 @@ I spent five minutes doing that and now I feel better.
 """
 
 def fizzbuzz(n):
-    if (n % 3 == 0) and (n % 5 == 0):
+    if (n % 15 == 0):
             return "FizzBuzz!"
     if (n % 3 == 0):
             return "Fizz"
