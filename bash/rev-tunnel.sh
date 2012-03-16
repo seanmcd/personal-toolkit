@@ -65,15 +65,17 @@ create_tunnel () {
 }
 
 kill_tunnel () {
-    PSRESULTS=`ps aux | egrep "[s]s[h].*${CHOSEN_ENDPOINT}"`
+    PSRESULTS=`ps aux | egrep "[s]s[h] .fnNT -R .* $DEFAULT_LOGIN"`
     dbg "SSH process: $PSRESULTS"
     # Breaks if this runs as a user whose login name has [^a-z] in it. May also
     # fail if there's more than one process that matches the $PSRESULTS regex.
-    SSH_PID=`echo "$PSRESULTS" | perl -pe 's/[a-z]+ +([0-9]{3,6}) +.+/$1/'`
+    SSH_PID=`echo "$PSRESULTS" | awk '{print $2}'`
     if [[ -n "$SSH_PID" ]]
     then
-	dbg "Trying to kill: $SSH_PID ..."
-	kill "$SSH_PID"
+	echo "$SSH_PID" | while read CURRENT_PID; do
+	    dbg "Trying to kill: $CURRENT_PID ..."
+	    kill "$CURRENT_PID"
+	done
     else
 	dbg "No matching SSH process to kill."
     fi
