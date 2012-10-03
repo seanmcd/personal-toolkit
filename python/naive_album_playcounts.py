@@ -1,28 +1,31 @@
-"""
-A script that investigates my iTunes Music Library xml and gives me a list of
-the albums whose songs I have listened to the most. Each album's score is the
-sum of the playcounts of the songs in that album. I created this because this
-is information that iTunes doesn't expose in its own UI.
+#-*- coding: utf-8 -*-
+#!/usr/bin/python
 
-Don't use this directly on your iTunes library xml, use it on a copy.
+""" A script that investigates my iTunes Music Library xml and gives me a list
+    of the albums whose songs I have listened to the most. Each album's score
+    is the sum of the playcounts of the songs in that album. I created this
+    because this is information that iTunes doesn't expose in its own UI.
 
-This script assumes that it's running on Python 2.6+, that it's in the same
-directory as a copy of the 'iTunes Music Library.xml' file, and that lxml is
-installed.
+    Don't use this directly on your iTunes library XML, use it on a copy.
 
-The formatting of the results will look cruddy (show HTML entity codes) for
-albums with some non-alphnumeric characters in their names - for example the
-Basshunter album 'LOL <(^^,)>'.
+    This script assumes that it's running on Python 2.6+, that it's in the same
+    directory as a copy of the 'iTunes Music Library.xml' file, and that lxml
+    is installed.
 
-The major outstanding issue with this script is that it takes the naive
-approach to XML parsing - it loads the entire XML document into memory and
-constructs a DOM from it. My iTunes library is bigger than most since it tracks
-~30,000 entries, and this script takes most of a minute to comb through it, so
-there's definitely room for improvement, but the flaw isn't critical. A future
-version should definitely switch to SAX-style parsing, though.
+    The formatting of the results will look cruddy (show HTML entity codes) for
+    albums with some non-alphnumeric characters in their names - for example
+    the Basshunter album 'LOL <(^^,)>'.
 
-There are also definitely some style and organization issues that could be
-fixed, which would make a good exercise for the future.
+    The major outstanding issue with this script is that it takes the naive
+    approach to XML parsing - it loads the entire XML document into memory and
+    constructs a DOM from it. My iTunes library is bigger than most since it
+    tracks ~30,000 entries, and this script takes most of a minute to comb
+    through it, so there's definitely room for improvement, but the flaw isn't
+    critical. A future version should definitely switch to SAX-style parsing,
+    though.
+
+    There are also definitely some style and organization issues that could be
+    fixed, which would make a good exercise for the future.
 """
 
 import lxml

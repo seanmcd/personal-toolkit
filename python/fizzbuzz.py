@@ -1,8 +1,10 @@
-"""
-I was preparing for a phone screen interview, and I got nervous when I reread
-[Jeff Atwood's blog post about the FizzBuzz
-test](http://www.codinghorror.com/blog/2007/02/why-cant-programmers-program.html). So
-I spent five minutes doing that and now I feel better.
+#-*- coding: utf-8 -*-
+#!/usr/bin/python
+
+""" I was preparing for a phone screen interview, and I got nervous when I
+    reread Jeff Atwood's blog post about the FizzBuzz test
+    (http://www.codinghorror.com/blog/2007/02/why-cant-programmers-program.html). So
+    I spent five minutes doing that and now I feel better.
 """
 
 def fizzbuzz(n):
